@@ -1,17 +1,20 @@
 import React from "react";
 import { productsApi, useGetAllProductsQuery } from "../features/productsApi";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import '../styles/home.css'
 import { addToCart } from "../features/cartSlice";
 const Home = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // add to cart
   const handleAddToCart = (product) => {
 
     dispatch(addToCart(product))
+    navigate("/cart")
 
   }
   return (
@@ -26,7 +29,7 @@ const Home = () => {
           <h2>New Arrivals</h2>
           <div className="products">
             {data?.map((product) => (<div key={product.id} className="product">
-              <h3>{productsApi.name}</h3>
+              <h3>{product.name}</h3>
               <img src={product.image} alt={product.name} />
               <div className="details">
                 <span>{product.desc}</span>

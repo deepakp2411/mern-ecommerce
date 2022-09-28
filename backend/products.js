@@ -22,10 +22,10 @@ const products = [
     },
     {
         id:4,
-        name:"Laptop",
+        name:"Samsung Galaxy",
         desc:"6.5-inch display",
         price: 980,
-        image:"https://res.cloudinary.com/mern-cart/image/upload/v1661755778/shoppee/1648210467-samsung-galaxy-s22-1648210458_kkmhna.jpg"
+        image:"https://res.cloudinary.com/mern-cart/image/upload/v1661755789/shoppee/512Va_-kCJL._AC_SX522__l0vygx.jpg"
     }
 ]
 
