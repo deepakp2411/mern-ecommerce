@@ -25,7 +25,7 @@ const products = [
         name:"Laptop",
         desc:"6.5-inch display",
         price: 980,
-        image:"https://res.cloudinary.com/mern-cart/image/upload/v1661748690/shoppee/laptop-xps-9520-t-black-gallery-5_i6rbl5.png"
+        image:"https://res.cloudinary.com/mern-cart/image/upload/v1661755778/shoppee/1648210467-samsung-galaxy-s22-1648210458_kkmhna.jpg"
     }
 ]
 
