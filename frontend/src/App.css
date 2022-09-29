@@ -23,3 +23,12 @@ li{
   font-size: 5rem;
   
 }
+
+/* // admin  */
+
+.link-active{
+  color: aqua;
+}
+.link-inactive{
+  color: rgb(97,97,97);
+}

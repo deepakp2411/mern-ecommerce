@@ -5,6 +5,7 @@ dotenv.config()
 const app = express();
 import webRoutes from './routes/webRoutes.js'
 import userRoutes from './routes/userRoute.js'
+// import checkoutPayment from './routes/checkoutRoute.js'
 import connectDB from './db/connectdb.js';
 const port = process.env.PORT 
 const DATABASE_URL = process.env.DATABASE_URL 
@@ -14,10 +15,12 @@ const DATABASE_URL = process.env.DATABASE_URL
 app.use(express.json())
 app.use(cors());
 
+
 // routes 
 
 app.use('/',webRoutes)
 app.use('/api',userRoutes)
+
 
 // db 
 connectDB(DATABASE_URL);
