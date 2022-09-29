@@ -1,20 +1,45 @@
-import React from "react";
-import { useSelector,useDispatch } from "react-redux";
+import React,{useEffect} from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { decreaseCart, removeFromCart } from "../features/cartSlice";
-import '../styles/cart.css'
+import {
+  addToCart,
+  decreaseCart,
+  removeFromCart,
+  clearCart,
+  getTotals,
+} from "../features/cartSlice";
+import "../styles/cart.css";
+
+
 const Cart = () => {
+
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const handleRemoveFromCart = (cartItem) => {
-    dispatch(removeFromCart(cartItem))
+  useEffect(() => {
+    dispatch(getTotals())
 
-  }
+
+  },[cart,dispatch])
+
+  const handleRemoveFromCart = (cartItem) => {
+    dispatch(removeFromCart(cartItem));
+  };
 
   const handleDecreaseCart = (cartItem) => {
-    dispatch(decreaseCart(cartItem))
-  }
+    dispatch(decreaseCart(cartItem));
+  };
+
+  const handleIncreaseCart = (cartItem) => {
+    dispatch(addToCart(cartItem));
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+
+
   return (
     <div className="cart-container">
       <h2>DP Cart</h2>
@@ -56,14 +81,20 @@ const Cart = () => {
                   <div>
                     <h3>{cartItem.name}</h3>
                     <p>{cartItem.desc}</p>
-                    <button onClick={() => handleRemoveFromCart(cartItem)}>Remove</button>
+                    <button onClick={() => handleRemoveFromCart(cartItem)}>
+                      Remove
+                    </button>
                   </div>
                 </div>
                 <div className="cart-product-price">${cartItem.price}</div>
                 <div className="cart-product-quantity">
-                  <button onClick={() =>handleDecreaseCart(cartItem)}>-</button>
+                  <button onClick={() => handleDecreaseCart(cartItem)}>
+                    -
+                  </button>
                   <div className="count">{cartItem.cartQuantity}</div>
-                  <button>+</button>
+                  <button onClick={() => handleIncreaseCart(cartItem)}>
+                    +
+                  </button>
                 </div>
                 <div className="cart-product-total-price">
                   ${cartItem.price * cartItem.cartQuantity}
@@ -72,7 +103,9 @@ const Cart = () => {
             ))}
           </div>
           <div className="cart-summary">
-            <button className="clear-cart">Clear Cart</button>
+            <button className="clear-cart" onClick={() => handleClearCart()}>
+              Clear Cart
+            </button>
             <div className="cart-checkout">
               <div className="subtotal">
                 <span>Subtotal</span>
@@ -91,7 +124,7 @@ const Cart = () => {
                     viewBox="0 0 16 16"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
                     />
                   </svg>
