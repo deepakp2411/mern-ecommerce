@@ -11,9 +11,12 @@ const port = process.env.PORT
 const DATABASE_URL = process.env.DATABASE_URL 
 
 
+
 // middleware 
 app.use(express.json())
 app.use(cors());
+
+
 
 
 // routes 

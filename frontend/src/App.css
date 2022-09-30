@@ -28,7 +28,11 @@ li{
 
 .link-active{
   color: aqua;
+  border-left: 3px solid #4b704b;
+  border-radius: 2px;
+  padding-left: 5px;
 }
 .link-inactive{
   color: rgb(97,97,97);
+  
 }

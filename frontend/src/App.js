@@ -15,6 +15,9 @@ import Dashboard from "./components/admin/Dashboard";
 import Products from "./components/admin/Products";
 import Summary from "./components/admin/Summary";
 import CreateProduct from "./components/admin/CreateProduct";
+import ProductList from "./components/admin/list/ProductList";
+import Users from "./components/admin/Users";
+import Orders from "./components/admin/Orders";
 
 const App = () => {
   return (
@@ -30,11 +33,12 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Dashboard />}>
             <Route path="products" element={<Products />}>
-          <Route path="create-product" element={<CreateProduct />} />
-
+            <Route index element={<ProductList />} />
+              <Route path="create-product" element={<CreateProduct />} />
             </Route>
             <Route path="summary" element={<Summary />} />
-            
+            <Route path="users" element={<Users />} />
+            <Route path="orders" element={<Orders />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
