@@ -1,12 +1,12 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv  from 'dotenv'
+const express = require('express')
+const cors = require('cors')
+const dotenv = require('dotenv')
 dotenv.config()
 const app = express();
-import webRoutes from './routes/webRoutes.js'
-import userRoutes from './routes/userRoute.js'
-// import checkoutPayment from './routes/checkoutRoute.js'
-import connectDB from './db/connectdb.js';
+const webRoutes = require("./routes/webRoutes")
+const userRoutes = require( './routes/userRoute')
+const productRoute = require( './routes/productsRoute')
+const connectDB = require( './db/connectdb');
 const port = process.env.PORT 
 const DATABASE_URL = process.env.DATABASE_URL 
 
@@ -19,7 +19,8 @@ app.use(cors());
 // routes 
 
 app.use('/',webRoutes)
-app.use('/api',userRoutes)
+app.use('/api',userRoutes) 
+app.use('/api/products',productRoute)
 
 
 // db 

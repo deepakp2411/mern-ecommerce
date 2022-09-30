@@ -1,11 +1,13 @@
-import products from "../products.js"
+const products = require("../products.js")
 
 
-export const getProducts = (req,res) => {
+ const getProducts = (req,res) => {
     res.send("Welcome to our shop")
 }
 
 
-export const getAllProducts = (req,res) => {
+ const getAllProducts = (req,res) => {
     res.send(products)
 }
+
+module.exports = {getAllProducts,getProducts}

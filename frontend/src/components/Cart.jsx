@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import "../styles/cart.css"
 import {
   addToCart,
   decreaseCart,
@@ -72,9 +73,9 @@ const Cart = () => {
           </div>
           <div className="cart-items">
             {cart.cartItems?.map((cartItem) => (
-              <div className="cart-item" key={cartItem.id}>
+              <div className="cart-item" key={cartItem._id}>
                 <div className="cart-product">
-                  <img src={cartItem.image} alt={cartItem.name} />
+                  <img src={cartItem.image.url} alt={cartItem.name} />
                   <div>
                     <h3>{cartItem.name}</h3>
                     <p>{cartItem.desc}</p>

@@ -1,10 +1,10 @@
-import bcrypt from 'bcrypt'
-import Joi from 'joi'
-import genAuth from '../middleware/auth.js';
-import UserModel from '../models/user.js'
+const bcrypt  = require("bcrypt")
+const Joi = require('joi')
+const genAuth = require('../middleware/auth.js');
+const UserModel = require('../models/user.js')
 
 
-export const registerUser = async (req,res) => {
+ const registerUser = async (req,res) => {
     const schema = Joi.object({
         name:Joi.string().min(3).max(30).required(),
         email:Joi.string().min(3).max(200).required().email(),
@@ -41,7 +41,7 @@ export const registerUser = async (req,res) => {
 // login 
 
 
-export const loginUser = async (req,res) => {
+ const loginUser = async (req,res) => {
     const schema = Joi.object({
         
         email:Joi.string().min(3).max(200).required().email(),
@@ -68,3 +68,5 @@ export const loginUser = async (req,res) => {
 
 
 }
+
+module.exports = {registerUser,loginUser}
